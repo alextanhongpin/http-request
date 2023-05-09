@@ -8,7 +8,7 @@ Authenticate your service. Although it can run scripts in markdown file, probabl
 3. Write the access token to the environment variable
 4. Save the response json to a file
 
-```http
+```rest
 {{
   // You can access environment variable using `process.env.XYZ` or just `XYZ`
   exports.defaultHeaders = {
