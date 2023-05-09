@@ -25,7 +25,9 @@ POST http://localhost:3000/register
   const fs = require('node:fs/promises')
   await fs.writeFile('.env.auth', `token=${response.parsedBody.accessToken}`, 'utf-8')
 
-  const { save } = require('../helper.js')
-  await save('./rest/auth_response.http', response)
+  /* Use plugin instead.
+  // const { save } = require('../helper.js')
+  // await save('./rest/auth_response.http', response)
+  */
 }}
 ```

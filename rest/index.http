@@ -17,9 +17,9 @@ x-powered-by: Express
     $global.foo = response.parsedBody.success
 }}
 
-
 ###
-# Calls the index
+# @title index
+# @description calls the index
 
 GET http://localhost:3000
 Authorization: Bearer {{$global.foo}}
