@@ -1,0 +1,11 @@
+HTTP/1.1 200 - OK
+x-powered-by: Express
+content-type: application/json; charset=utf-8
+content-length: 16
+etag: W/"10-oV4hJxRVSENxc/wX8+mA4/Pe4tA"
+date: Tue, 09 May 2023 16:59:23 GMT
+connection: close
+
+{
+  "success": true
+}
