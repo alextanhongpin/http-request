@@ -21,6 +21,8 @@ x-powered-by: Express
 GET http://localhost:3000
 Authorization: Bearer {{$global.foo}}
 
+?? status == 200
+
 {{
   const assert = require("node:assert")
   assert.ok(response.parsedBody.success)

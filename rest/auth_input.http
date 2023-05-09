@@ -1,5 +1,5 @@
-@u = {{$input input username? $value: email or username}}
-@p = {{$password input password? $value: min 6 characters}}
+@u = {{$input input username? $value: john}}
+@p = {{$password input password? $value: 123456}}
 @f = {{$pick select fruit? $value: apple,orange}}
 POST http://localhost:3000/register
 Authorization: Basic {{u}} {{p}}

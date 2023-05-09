@@ -1,6 +1,12 @@
 ## Auth
 
-Authenticate your service.
+Authenticate your service. Although it can run scripts in markdown file, probably leave markdown for documentation.
+
+
+1. Runs basic authentication
+2. Calls the register endpoint
+3. Write the access token to the environment variable
+4. Save the response json to a file
 
 ```http
 {{
@@ -19,19 +25,7 @@ POST http://localhost:3000/register
   // Import statement is not supported, but you can use require.
   const fs = require('node:fs/promises')
   await fs.writeFile('.env.auth', `token=${response.parsedBody.accessToken}`, 'utf-8')
-
-  // Exclude fields that are not useful.
-  const { rawHeaders, rawBody, body, prettyPrintBody, ...rest } = response
-  try {
-    // Create only if it doesn't exist.
-    // If you want a new result, delete the file before re-running.
-    await fs.writeFile('./rest/auth.json', JSON.stringify(rest, null, 2), {flag: 'wx'})
-  } catch(err) {
-    if (err.code === 'EEXIST') {
-      return
-    }
-
-    console.log(err)
-  }
+  const { save } = require('../helper.js')
+  await save('./rest/auth.json', response)
 }}
 ```
