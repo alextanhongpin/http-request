@@ -9,7 +9,6 @@ module.exports = {
         const { httpFile } = processContext;
         const { name, dir } = path.parse(httpFile.fileName);
         save(path.join(dir, name + ".rest"), response);
-        return true;
       }
     );
   },
