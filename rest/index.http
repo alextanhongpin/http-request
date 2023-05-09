@@ -1,0 +1,27 @@
+GET http://localhost:3000
+Authorization: Bearer {{process.env.token}}
+
+HTTP/1.1 200  - OK
+connection: close
+content-length: 16
+content-type: application/json; charset=utf-8
+date: Tue, 09 May 2023 13:45:18 GMT
+etag: W/"10-oV4hJxRVSENxc/wX8+mA4/Pe4tA"
+x-powered-by: Express
+
+{
+  "success": true
+}
+
+{{
+    $global.foo = response.parsedBody.success
+}}
+
+###
+GET http://localhost:3000
+Authorization: Bearer {{$global.foo}}
+
+{{
+  const assert = require("node:assert")
+  assert.ok(response.parsedBody.success)
+}}

@@ -1,0 +1,11 @@
+@u = {{$input input username? $value: email or username}}
+@p = {{$password input password? $value: min 6 characters}}
+@f = {{$pick select fruit? $value: apple,orange}}
+POST http://localhost:3000/register
+Authorization: Basic {{u}} {{p}}
+
+{{
+  // Import statement is not supported, but you can use require.
+  const fs = require('node:fs/promises')
+  await fs.writeFile('.env.auth', `token=${response.parsedBody.accessToken}`, 'utf-8')
+}}
