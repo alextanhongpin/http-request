@@ -5,10 +5,15 @@ function format(response) {
   const { prettyPrintBody, headers, protocol, statusCode, statusMessage } =
     response;
 
+  // Save the status code and message.
   const body = [`${protocol} ${statusCode} - ${statusMessage}`];
+
+  // Save the response headers.
   for (let key in headers) {
     body.push(`${key}: ${headers[key]}`);
   }
+
+  // Save the response body.
   body.push("");
   body.push(prettyPrintBody);
 

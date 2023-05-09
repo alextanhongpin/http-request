@@ -1,0 +1,16 @@
+HTTP/1.1 200 - OK
+x-powered-by: Express
+content-type: application/json; charset=utf-8
+content-length: 35
+etag: W/"23-smEbQd0mPu46itZF4Eh1aD3cg+Q"
+date: Tue, 09 May 2023 17:04:42 GMT
+connection: close
+
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "A book"
+    }
+  ]
+}

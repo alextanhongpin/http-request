@@ -11,6 +11,16 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/books", (req, res) => {
+  res.status(200).json({
+    data: [{ id: 1, name: "A book" }],
+  });
+});
+
+app.post("/books", (req, res) => {
+  res.status(201).json(null);
+});
+
 app.post("/register", (req, res) => {
   if (validateBasicAuth(req.headers.authorization)) {
     console.log("success");
