@@ -8,7 +8,7 @@ module.exports = {
       function (response, processContext) {
         const { httpFile } = processContext;
         const { name, dir } = path.parse(httpFile.fileName);
-        save(path.join(dir, name + ".rest"), response);
+        save(path.join(dir, name + ".txt"), response);
       }
     );
   },
