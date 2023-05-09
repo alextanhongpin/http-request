@@ -13,17 +13,20 @@ x-powered-by: Express
   "success": true
 }
 
-{{
+{{@response
     $global.foo = response.parsedBody.success
 }}
 
+
 ###
+# Calls the index
+
 GET http://localhost:3000
 Authorization: Bearer {{$global.foo}}
 
 ?? status == 200
 
-{{
+{{@response
   const assert = require("node:assert")
   assert.ok(response.parsedBody.success)
 }}

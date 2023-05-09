@@ -1,13 +1,27 @@
 const fs = require("node:fs/promises");
+const assert = require("node:assert");
+
+function format(response) {
+  const { prettyPrintBody, headers, protocol, statusCode, statusMessage } =
+    response;
+
+  const body = [`${protocol} ${statusCode} - ${statusMessage}`];
+  for (let key in headers) {
+    body.push(`${key}: ${headers[key]}`);
+  }
+  body.push("");
+  body.push(prettyPrintBody);
+
+  return body.join("\n");
+}
 
 async function save(name, response) {
-  // Exclude fields that are not useful.
-  const { rawHeaders, rawBody, body, prettyPrintBody, ...rest } = response;
+  const text = format(response);
 
   // Create only if it doesn't exist.
   // If you want a new result, delete the file before re-running.
   try {
-    await fs.writeFile(name, JSON.stringify(rest, null, 2), {
+    await fs.writeFile(name, text, {
       flag: "wx",
     });
   } catch (err) {
