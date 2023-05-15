@@ -1,5 +1,5 @@
 POST http://localhost:3000/books
 
 {
-	name: "Something"
+	"name": "Something"
 }
